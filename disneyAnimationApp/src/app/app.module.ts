@@ -27,6 +27,11 @@ import { MovieListComponent } from './movies/movie-list/movie-list.component';
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { MovieItemComponent } from './movies/movie-item/movie-item.component';
 import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
+import { SpinoffStartComponent } from './spinoffs/spinoff-start/spinoff-start.component';
+import { SpinoffDetailComponent } from './spinoffs/spinoff-detail/spinoff-detail.component';
+import { SpinoffEditComponent } from './spinoffs/spinoff-edit/spinoff-edit.component';
+import { SpinoffItemComponent } from './spinoffs/spinoff-item/spinoff-item.component';
+import { SpinoffListComponent } from './spinoffs/spinoff-list/spinoff-list.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +59,12 @@ import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
     MovieListComponent,
     MovieDetailComponent,
     MovieItemComponent,
-    MovieEditComponent
+    MovieEditComponent,
+    SpinoffStartComponent,
+    SpinoffDetailComponent,
+    SpinoffEditComponent,
+    SpinoffItemComponent,
+    SpinoffListComponent
   ],
   imports: [
     BrowserModule,
