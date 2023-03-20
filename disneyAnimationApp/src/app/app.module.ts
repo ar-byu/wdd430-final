@@ -22,6 +22,11 @@ import { EraStartComponent } from './eras/era-start/era-start.component';
 import { EraDetailComponent } from './eras/era-detail/era-detail.component';
 import { EraItemComponent } from './eras/era-item/era-item.component';
 import { EraListComponent } from './eras/era-list/era-list.component';
+import { MovieStartComponent } from './movies/movie-start/movie-start.component';
+import { MovieListComponent } from './movies/movie-list/movie-list.component';
+import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
+import { MovieItemComponent } from './movies/movie-item/movie-item.component';
+import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +49,12 @@ import { EraListComponent } from './eras/era-list/era-list.component';
     EraStartComponent,
     EraDetailComponent,
     EraItemComponent,
-    EraListComponent
+    EraListComponent,
+    MovieStartComponent,
+    MovieListComponent,
+    MovieDetailComponent,
+    MovieItemComponent,
+    MovieEditComponent
   ],
   imports: [
     BrowserModule,
