@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./spinoff-list.component.css']
 })
 export class SpinoffListComponent {
+  numbers: Array<number>;
+
+  constructor() {
+    this.numbers = Array(5).fill(0).map((x,i)=>i);
+  }
 
 }
