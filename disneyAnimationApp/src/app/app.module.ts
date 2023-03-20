@@ -9,6 +9,11 @@ import { MoviesComponent } from './movies/movies.component';
 import { SpinoffsComponent } from './spinoffs/spinoffs.component';
 import { CharactersComponent } from './characters/characters.component';
 import { ErasComponent } from './eras/eras.component';
+import { CharacterStartComponent } from './characters/character-start/character-start.component';
+import { CharacterDetailComponent } from './characters/character-detail/character-detail.component';
+import { CharacterEditComponent } from './characters/character-edit/character-edit.component';
+import { CharacterItemComponent } from './characters/character-item/character-item.component';
+import { CharacterListComponent } from './characters/character-list/character-list.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +23,12 @@ import { ErasComponent } from './eras/eras.component';
     MoviesComponent,
     SpinoffsComponent,
     CharactersComponent,
-    ErasComponent
+    ErasComponent,
+    CharacterStartComponent,
+    CharacterDetailComponent,
+    CharacterEditComponent,
+    CharacterItemComponent,
+    CharacterListComponent
   ],
   imports: [
     BrowserModule,
