@@ -14,6 +14,14 @@ import { CharacterDetailComponent } from './characters/character-detail/characte
 import { CharacterEditComponent } from './characters/character-edit/character-edit.component';
 import { CharacterItemComponent } from './characters/character-item/character-item.component';
 import { CharacterListComponent } from './characters/character-list/character-list.component';
+import { ErasStartComponent } from './eras/eras-start/eras-start.component';
+import { ErasDetailComponent } from './eras/eras-detail/eras-detail.component';
+import { ErasEditComponent } from './eras/eras-edit/eras-edit.component';
+import { EraEditComponent } from './eras/era-edit/era-edit.component';
+import { EraStartComponent } from './eras/era-start/era-start.component';
+import { EraDetailComponent } from './eras/era-detail/era-detail.component';
+import { EraItemComponent } from './eras/era-item/era-item.component';
+import { EraListComponent } from './eras/era-list/era-list.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +36,15 @@ import { CharacterListComponent } from './characters/character-list/character-li
     CharacterDetailComponent,
     CharacterEditComponent,
     CharacterItemComponent,
-    CharacterListComponent
+    CharacterListComponent,
+    ErasStartComponent,
+    ErasDetailComponent,
+    ErasEditComponent,
+    EraEditComponent,
+    EraStartComponent,
+    EraDetailComponent,
+    EraItemComponent,
+    EraListComponent
   ],
   imports: [
     BrowserModule,
