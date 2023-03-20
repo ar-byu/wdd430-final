@@ -1,1 +1,17 @@
-<p>character-list works!</p>
+<div class="panel panel-default">
+    <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="row">
+                <h2 class="title" style="margin-left: 3%;">Characters</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="panel-body">
+        <app-character-item
+        *ngFor="let number of numbers"></app-character-item>
+    </div>
+</div>
