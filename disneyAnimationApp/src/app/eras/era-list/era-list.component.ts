@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./era-list.component.css']
 })
 export class EraListComponent {
+  numbers: Array<number>;
 
+  constructor() {
+    this.numbers = Array(8).fill(0).map((x,i)=>i);
+  }
 }
