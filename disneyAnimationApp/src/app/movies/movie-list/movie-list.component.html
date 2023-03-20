@@ -1,1 +1,17 @@
-<p>movie-list works!</p>
+<div class="panel panel-default">
+    <div class="row">
+        <div class="col-xs-12">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <div class="row">
+                <h3 class="title pad-left-right">Movies</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="panel-body">
+        <app-movie-item
+        *ngFor="let number of numbers"></app-movie-item>
+    </div>
+</div>
