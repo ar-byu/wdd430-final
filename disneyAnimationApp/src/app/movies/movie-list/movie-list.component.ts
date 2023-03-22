@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MOCKMOVIES } from '../MOCKMOVIES';
+import { Movie } from '../movies.model';
 
 @Component({
   selector: 'app-movie-list',
@@ -7,9 +9,11 @@ import { Component } from '@angular/core';
 })
 export class MovieListComponent {
 
-  numbers: Array<number>;
+  movies: Movie[] = [];
 
-  constructor() {
-    this.numbers = Array(5).fill(0).map((x,i)=>i);
+  constructor() {}
+
+  ngOnInit() {
+    this.movies = MOCKMOVIES;
   }
 }
