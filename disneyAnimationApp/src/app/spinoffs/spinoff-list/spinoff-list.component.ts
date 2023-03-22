@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MOCKSPINOFFS } from '../MOCKSPINOFFS';
+import { Spinoff } from '../spinoffs.model';
 
 @Component({
   selector: 'app-spinoff-list',
@@ -6,10 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./spinoff-list.component.css']
 })
 export class SpinoffListComponent {
-  numbers: Array<number>;
+  spinoffs: Spinoff[] = [];
 
-  constructor() {
-    this.numbers = Array(5).fill(0).map((x,i)=>i);
+  constructor() {}
+
+  ngOnInit() {
+    this.spinoffs = MOCKSPINOFFS;
   }
-
 }

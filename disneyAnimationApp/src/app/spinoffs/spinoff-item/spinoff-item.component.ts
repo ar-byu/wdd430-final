@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Spinoff } from '../spinoffs.model';
 
 @Component({
   selector: 'app-spinoff-item',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./spinoff-item.component.css']
 })
 export class SpinoffItemComponent {
-
+  @Input() spinoff: Spinoff;
 }
