@@ -12,6 +12,6 @@
       </div>
     <div class="panel-body">
         <app-character-item
-        *ngFor="let number of numbers"></app-character-item>
+        *ngFor="let character of characters" [character]="character"></app-character-item>
     </div>
 </div>

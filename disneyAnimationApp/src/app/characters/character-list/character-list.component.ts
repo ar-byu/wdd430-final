@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MOCKCHARACTERS } from '../MOCKCHARACTERS';
+import { Character } from '../character.model';
+import { CharacterService } from '../character.service';
 
 @Component({
   selector: 'app-character-list',
   templateUrl: './character-list.component.html',
   styleUrls: ['./character-list.component.css']
 })
-export class CharacterListComponent {
-  numbers: Array<number>;
+export class CharacterListComponent implements OnInit{
+  characters: Character[] = [];
 
-  constructor() {
-    this.numbers = Array(5).fill(0).map((x,i)=>i);
+  constructor(private characterService: CharacterService) {}
+
+  ngOnInit() {
+    this.characters = MOCKCHARACTERS;
   }
 }
