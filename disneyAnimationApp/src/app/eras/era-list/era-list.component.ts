@@ -1,14 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Era } from '../eras.model';
+import { MOCKERAS } from '../MOCKERAS';
 
 @Component({
   selector: 'app-era-list',
   templateUrl: './era-list.component.html',
   styleUrls: ['./era-list.component.css']
 })
-export class EraListComponent {
-  numbers: Array<number>;
+export class EraListComponent implements OnInit {
+  eras: Era[] = [];
 
-  constructor() {
-    this.numbers = Array(8).fill(0).map((x,i)=>i);
+  constructor() {}
+
+  ngOnInit() {
+    this.eras = MOCKERAS;
   }
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Era } from '../eras.model';
 
 @Component({
   selector: 'app-era-item',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./era-item.component.css']
 })
 export class EraItemComponent {
-
+  @Input() era: Era;
 }
