@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MOCKCHARACTERS } from '../MOCKCHARACTERS';
 import { Character } from '../character.model';
 import { CharacterService } from '../character.service';
 
@@ -14,6 +13,6 @@ export class CharacterListComponent implements OnInit{
   constructor(private characterService: CharacterService) {}
 
   ngOnInit() {
-    this.characters = MOCKCHARACTERS;
+    this.characters = this.characterService.getCharacters();
   }
 }

@@ -13,4 +13,13 @@ export class CharacterService {
     constructor() {
         this.characters = MOCKCHARACTERS;
     }
+
+    getCharacters(): Character[] {
+        return this.characters.slice();
+    }
+
+    getOneCharacter(id: number): Character {
+        return this.characters[id];
+    }
+
 }
