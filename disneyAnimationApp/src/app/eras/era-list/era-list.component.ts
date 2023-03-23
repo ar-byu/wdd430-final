@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Era } from '../eras.model';
-import { MOCKERAS } from '../MOCKERAS';
+import { ErasService } from '../eras.service';
 
 @Component({
   selector: 'app-era-list',
@@ -10,9 +10,9 @@ import { MOCKERAS } from '../MOCKERAS';
 export class EraListComponent implements OnInit {
   eras: Era[] = [];
 
-  constructor() {}
+  constructor(private erasService: ErasService) {}
 
   ngOnInit() {
-    this.eras = MOCKERAS;
+    this.eras = this.erasService.getEras();
   }
 }
