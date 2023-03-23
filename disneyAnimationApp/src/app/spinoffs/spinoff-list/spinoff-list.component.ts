@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MOCKSPINOFFS } from '../MOCKSPINOFFS';
 import { Spinoff } from '../spinoffs.model';
+import { SpinoffsService } from '../spinoffs.service';
 
 @Component({
   selector: 'app-spinoff-list',
@@ -10,9 +11,9 @@ import { Spinoff } from '../spinoffs.model';
 export class SpinoffListComponent {
   spinoffs: Spinoff[] = [];
 
-  constructor() {}
+  constructor(private spinoffService: SpinoffsService) {}
 
   ngOnInit() {
-    this.spinoffs = MOCKSPINOFFS;
+    this.spinoffs = this.spinoffService.getSpinoffs();
   }
 }
