@@ -1,8 +1,6 @@
 export const MOCKMOVIES: any[] = [
     {
-        "_id": {
-          "$oid": "640b6fa3355cc44b0c19366a"
-        },
+        "id": 1,
         "title": "The Three Caballeros",
         "promoImage": "https://static.wikia.nocookie.net/disney/images/7/7b/Three_caballeros_poster.png",
         "year": "1945",
@@ -12,9 +10,7 @@ export const MOCKMOVIES: any[] = [
         "trivia": "The Three Caballeros is one of the package films released by Disney and features Donald Duck.",
         "category": "Hybrid anthology"
       },{
-        "_id": {
-          "$oid": "640b6fa3355cc44b0c19366d"
-        },
+        "id": 2,
         "title": "Melody Time",
         "promoImage": "https://static.wikia.nocookie.net/disney/images/2/2c/MelodyTimePosterHD.jpg",
         "year": "1948",
@@ -24,9 +20,7 @@ export const MOCKMOVIES: any[] = [
         "trivia": "Melody Time is the fifth package film. It is set to more popular music and is considered the 'contemporary' version of Fantasia.",
         "category": "Hybrid musical"
       },{
-        "_id": {
-          "$oid": "640b6fa3355cc44b0c193678"
-        },
+        "id": 3,
         "title": "Robin Hood",
         "promoImage": "https://static.wikia.nocookie.net/disney/images/9/91/Robinhood_1973_poster.png",
         "year": "1973",
@@ -36,9 +30,7 @@ export const MOCKMOVIES: any[] = [
         "trivia": "Robin Hood is the first movie to be produced by Disney's animation studio after Walt Disney's death. While it was popular with audiences, it has a mixed critical response.",
         "category": "Musical adventure"
       },{
-        "_id": {
-          "$oid": "640b6fa3355cc44b0c193667"
-        },
+        "id": 4,
         "title": "Dumbo",
         "promoImage": "https://static.wikia.nocookie.net/disney/images/a/a7/Dumbo-1941-poster.jpg",
         "year": "1941",
@@ -48,9 +40,7 @@ export const MOCKMOVIES: any[] = [
         "trivia": "Dumbo is a film based on a book written by Helen Aberson. It is one of the shortest Disney features.",
         "category": "Fantasy"
       },{
-        "_id": {
-          "$oid": "640b6fa3355cc44b0c193666"
-        },
+        "id": 5,
         "title": "Fantasia",
         "promoImage": "https://static.wikia.nocookie.net/disney/images/1/12/Fantasia-poster-1940.jpg",
         "year": "1940",
