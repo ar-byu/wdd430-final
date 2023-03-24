@@ -8,4 +8,5 @@ import { Spinoff } from '../spinoffs.model';
 })
 export class SpinoffItemComponent {
   @Input() spinoff: Spinoff;
+  @Input() index: number;
 }

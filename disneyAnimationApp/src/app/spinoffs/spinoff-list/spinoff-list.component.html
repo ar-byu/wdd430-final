@@ -12,6 +12,6 @@
       </div>
     <div class="panel-body">
         <app-spinoff-item
-        *ngFor="let spinoff of spinoffs" [spinoff]="spinoff"></app-spinoff-item>
+        *ngFor="let spinoff of spinoffs; let i = index" [spinoff]="spinoff" [index]="i"></app-spinoff-item>
     </div>
 </div>
