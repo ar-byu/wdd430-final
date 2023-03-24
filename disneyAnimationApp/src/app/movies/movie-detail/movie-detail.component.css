@@ -1,0 +1,14 @@
+.movie-panel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50% 50%;
+}
+
+.movie-left{
+    grid-column: 2;
+}
+
+.movie-right {
+    grid-column: 1;
+    font-size: large;
+}

@@ -6,7 +6,7 @@ export const MOCKMOVIES: any[] = [
         "year": "1945",
         "era": "Package Era",
         "length": "72 minutes",
-        "trailerLink": "https://youtu.be/6rbnP5cVZ4w",
+        "trailerLink": "https://youtube.com/embed/6rbnP5cVZ4w",
         "trivia": "The Three Caballeros is one of the package films released by Disney and features Donald Duck.",
         "category": "Hybrid anthology"
       },{
@@ -16,7 +16,7 @@ export const MOCKMOVIES: any[] = [
         "year": "1948",
         "era": "Package Era",
         "length": "75 minutes",
-        "trailerLink": "https://youtu.be/BjgrjB_8vdg",
+        "trailerLink": "https://youtuble.com/embed/BjgrjB_8vdg",
         "trivia": "Melody Time is the fifth package film. It is set to more popular music and is considered the 'contemporary' version of Fantasia.",
         "category": "Hybrid musical"
       },{
@@ -26,7 +26,7 @@ export const MOCKMOVIES: any[] = [
         "year": "1973",
         "era": "Bronze Age",
         "length": "83 minutes",
-        "trailerLink": "https://youtu.be/hvic3bjZDfs",
+        "trailerLink": "https://youtube.com/embed/hvic3bjZDfs",
         "trivia": "Robin Hood is the first movie to be produced by Disney's animation studio after Walt Disney's death. While it was popular with audiences, it has a mixed critical response.",
         "category": "Musical adventure"
       },{
@@ -36,7 +36,7 @@ export const MOCKMOVIES: any[] = [
         "year": "1941",
         "era": "Golden Age",
         "length": "64 minutes",
-        "trailerLink": "https://youtu.be/tLtQ3bCvBA0",
+        "trailerLink": "https://youtube.com/embed/tLtQ3bCvBA0",
         "trivia": "Dumbo is a film based on a book written by Helen Aberson. It is one of the shortest Disney features.",
         "category": "Fantasy"
       },{
@@ -46,7 +46,7 @@ export const MOCKMOVIES: any[] = [
         "year": "1940",
         "era": "Golden Age",
         "length": "124 minutes",
-        "trailerLink": "https://youtu.be/omwdODyz8vI",
+        "trailerLink": "https://youtube.com/embed/omwdODyz8vI",
         "trivia": "Fantasia is a musical anthology with eight segments, each based on the musical works of Leopold Stokowski.",
         "category": "Musical anthology"
       }

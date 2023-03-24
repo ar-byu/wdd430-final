@@ -28,6 +28,7 @@ import { SpinoffDetailComponent } from './spinoffs/spinoff-detail/spinoff-detail
 import { SpinoffEditComponent } from './spinoffs/spinoff-edit/spinoff-edit.component';
 import { SpinoffItemComponent } from './spinoffs/spinoff-item/spinoff-item.component';
 import { SpinoffListComponent } from './spinoffs/spinoff-list/spinoff-list.component';
+import { SafePipe } from './safe.pipe';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { SpinoffListComponent } from './spinoffs/spinoff-list/spinoff-list.compo
     SpinoffDetailComponent,
     SpinoffEditComponent,
     SpinoffItemComponent,
-    SpinoffListComponent
+    SpinoffListComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
