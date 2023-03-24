@@ -8,6 +8,10 @@
     grid-column: 2;
 }
 
+.movie-left p {
+    margin-top: 1%;
+}
+
 .movie-right {
     grid-column: 1;
     font-size: large;
