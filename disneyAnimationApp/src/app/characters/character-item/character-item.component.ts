@@ -9,6 +9,7 @@ import { CharacterService } from '../character.service';
 })
 export class CharacterItemComponent implements OnInit {
   @Input() character: Character;
+  @Input() index: number;
 
   constructor(private characterService: CharacterService) {}
 

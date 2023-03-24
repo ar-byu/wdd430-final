@@ -16,8 +16,8 @@ export class CharacterService {
         return this.characters.slice();
     }
 
-    getOneCharacter(id: number): Character {
-        return this.characters[id];
+    getOneCharacter(index: number): Character {
+        return this.characters[index];
     }
 
 }
