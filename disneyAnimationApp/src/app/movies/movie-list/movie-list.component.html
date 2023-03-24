@@ -12,6 +12,6 @@
       </div>
     <div class="panel-body">
         <app-movie-item
-        *ngFor="let movie of movies" [movie]="movie"></app-movie-item>
+        *ngFor="let movie of movies; let i = index" [movie]="movie" [index]="i"></app-movie-item>
     </div>
 </div>

@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Movie } from '../movies.model';
+import { MoviesService } from '../movies.service';
 
 @Component({
   selector: 'app-movie-item',
@@ -8,4 +9,9 @@ import { Movie } from '../movies.model';
 })
 export class MovieItemComponent {
   @Input() movie: Movie;
+  @Input() index: number;
+
+  constructor(private moviesService: MoviesService) {}
+
+  ngOnInit() {}
 }
