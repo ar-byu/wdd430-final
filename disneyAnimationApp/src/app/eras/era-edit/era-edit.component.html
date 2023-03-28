@@ -1,1 +1,92 @@
-<p>era-edit works!</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form id="era-edit" #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="name">Era Name:</label>
+                    <input
+                        type="text"
+                        id="name"
+                        class="form-control required"
+                        size="120"
+                        max="120"
+                        name="name"
+                        [ngModel]="era?.name"
+                        #name="ngModel"
+                        required
+                        >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="start_year">Start Year:</label>
+                    <input
+                        type="number"
+                        id="start_year"
+                        class="form-control required"
+                        size="4"
+                        max="4"
+                        name="start_year"
+                        [ngModel]="era?.start_year"
+                        #name="ngModel"
+                        required
+                        >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="end_year">End Year:</label>
+                    <input
+                        type="number"
+                        id="end_year"
+                        class="form-control required"
+                        size="4"
+                        max="4"
+                        name="end_year"
+                        [ngModel]="era?.end_year"
+                        #name="ngModel"
+                        required
+                        >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="description">Description:</label>
+                    <input 
+                    type="text"
+                    id="description"
+                    class="form-control required"
+                    size="120"
+                    max="300"
+                    name="description"
+                    [ngModel]="era?.description"
+                    #name="ngModel"
+                    required
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="moviesInEra">Movies In Era:</label>
+                    <input 
+                    type="text"
+                    id="moviesInEra"
+                    class="form-control required"
+                    size="120"
+                    max="500"
+                    name="moviesInEra"
+                    [ngModel]="era?.moviesInEra"
+                    #name="ngModel"
+                    required
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 btn-toolbar">
+                    <button class="btn btn-success" type="submit" [disabled]="f.invalid">Submit</button>
+                    <button class="btn btn-primary" type="button">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
