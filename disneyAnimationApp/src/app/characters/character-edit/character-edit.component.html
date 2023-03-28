@@ -1,1 +1,114 @@
-<p>character-edit works!</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+      <form id="character-edit" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="name">Name:</label>
+            <input
+              type="text"
+              id="name"
+              class="form-control required"
+              size="120"
+              max="120"
+              name="name"
+              [ngModel]="character?.name"
+              #name="ngModel"
+              required>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 form-group">
+                <label for="movie">Movie:</label>
+                <input
+                    type="text"
+                    id="movie"
+                    class="form-control required"
+                    size="120"
+                    max="120"
+                    name="movie"
+                    [ngModel]="character?.movie"
+                    #name="ngModel"
+                    required>
+            </div>
+        </div>
+  
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="role">Role:</label>
+            <input
+              type="text"
+              id="role"
+              class="form-control required"
+              size="120"
+              max="255"
+              name="role"
+              [ngModel]="character?.role"
+              #name="ngModel"
+              required>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="description">Description:</label>
+            <input
+              type="text"
+              id="description"
+              class="form-control invalid"
+              size="150"
+              max="255"
+              name="phone"
+              [ngModel]="character?.description"
+              #name="ngModel"
+              >
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="image">Image URL:</label>
+            <input
+              type="text"
+              id="image"
+              class="form-control"
+              size="150"
+              max="255"
+              name="image"
+              [ngModel]="character?.image"
+              #name="ngModel"
+              >
+          </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 form-group">
+                <label for="trivia">Trivia:</label>
+                <input
+                    type="text"
+                    id="trivia"
+                    class="form-control invalid"
+                    size="120"
+                    max="120"
+                    name="trivia"
+                    [ngModel]="character?.trivia"
+                    #name="ngModel"
+                    required
+                    >
+            </div>
+        </div>
+        <!---
+        <div class="alert alert-danger" *ngIf="name.untouched || movie.untouched || role.untouched || description.untouched || trivia.untouched">
+            <p><b>The name, movie, role, description, and trivia fields are required.</b></p>
+        </div>
+        -->
+        <div class="row">
+          <div class="col-xs-12 btn-toolbar">
+            <button class="btn btn-success" type="submit" [disabled]="f.untouched || f.invalid">Save</button>
+            <button class="btn btn-primary" type="button" >Cancel</button>
+          </div>
+        </div>
+  
+      </form>
+    </div>
+  </div>
+  
