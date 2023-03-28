@@ -38,7 +38,8 @@ export class CharacterEditComponent implements OnInit {
 
   onSubmit(form: NgForm) {
     const value = form.value;
-    const newCharacter = new Character(value.id, value.name, value.image, value.movie, value.role, value.description, value.string);
+    const newCharacter = new Character(value.id, value.name, value.image, value.movie, 
+      value.role, value.description, value.string);
     if (this.editMode === true) {
       this.characterService.updateCharacter(this.originalCharacter, newCharacter);
     } else {

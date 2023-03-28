@@ -1,1 +1,136 @@
-<p>movie-edit works!</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <form id="movie-edit" #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="title">Movie Title:</label>
+                    <input
+                        type="text"
+                        id="title"
+                        class="form-control required"
+                        size="120"
+                        max="120"
+                        name="title"
+                        [ngModel]="movie?.title"
+                        #name="ngModel"
+                        required
+                        >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="year">Release Year:</label>
+                    <input 
+                        type="number"
+                        id="year"
+                        class="form-control required"
+                        name="year"
+                        [ngModel]="movie?.year"
+                        #name="ngModel"
+                        required
+                        >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="era">Animation Era:</label>
+                    <input
+                    type="text"
+                    id="era"
+                    class="form-control required"
+                    size="120"
+                    max="255"
+                    name="era"
+                    [ngModel]="movie?.era"
+                    #name="ngModel"
+                    required
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="length">Length:</label>
+                    <input
+                    type="text"
+                    id="length"
+                    class="form-control required"
+                    size="120"
+                    max="255"
+                    name="length"
+                    [ngModel]="movie?.length"
+                    #name="ngModel"
+                    required
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="Trivia">Trivia:</label>
+                    <input
+                    type="text"
+                    id="trivia"
+                    class="form-control required"
+                    size="120"
+                    max="500"
+                    name="trivia"
+                    [ngModel]="movie?.trivia"
+                    #name="ngModel"
+                    required
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="category">Category:</label>
+                    <input
+                    type="text"
+                    id="category"
+                    class="form-control required"
+                    size="120"
+                    max="255"
+                    name="category"
+                    [ngModel]="movie?.category"
+                    #name="ngModel"
+                    required
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="promoImage">Poster URL:</label>
+                    <input
+                    type="text"
+                    id="promoImage"
+                    class="form-control required"
+                    size="120"
+                    max="500"
+                    name="promoImage"
+                    [ngModel]="movie?.promoImage"
+                    #name="ngModel"
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 form-group">
+                    <label for="trailerLink">Trailer URL:</label>
+                    <input
+                    type="text"
+                    id="trailerLink"
+                    class="form-control required"
+                    size="120"
+                    max="255"
+                    name="trailerLink"
+                    [ngModel]="movie?.trailerLink"
+                    #name="ngModel"
+                    >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 btn-toolbar">
+                    <button class="btn btn-success" type="submit" [disabled]="f.untouched || f.invalid">Submit</button>
+                    <button class="btn btn-primary" type="button">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
