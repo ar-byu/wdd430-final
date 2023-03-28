@@ -3,6 +3,10 @@
         <h1><b>{{character.name}}</b></h1>
         <img src="{{character.image}}" alt="Picture of {{character.name}} from {{character.movie}}">
         <h2>{{character.movie}}</h2>
+        <div style="margin-top: 15px;">
+            <button class="btn btn-primary" [routerLink]="'./edit'">Edit</button>
+            <button class="btn btn-danger">Delete</button>
+        </div>
     </div>
     <div class="panel panel-body">
         <p><b>Role:</b> {{character.role}}</p>
