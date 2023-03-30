@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Spinoff } from '../spinoffs.model';
 import { SpinoffsService } from '../spinoffs.service';
 
@@ -12,7 +12,7 @@ export class SpinoffDetailComponent implements OnInit{
   spinoff: Spinoff;
   id: number;
 
-  constructor(private spinoffsService: SpinoffsService, private route: ActivatedRoute) {}
+  constructor(private spinoffsService: SpinoffsService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -21,5 +21,10 @@ export class SpinoffDetailComponent implements OnInit{
         this.spinoff = this.spinoffsService.getOneSpinoff(this.id);
       }
     )
+  }
+
+  onDelete() {
+    this.spinoffsService.deleteSpinoff(this.spinoff);
+    this.router.navigate(['/spinoffs'], {relativeTo: this.route});
   }
 }

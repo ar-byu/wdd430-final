@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MOCKSPINOFFS } from './MOCKSPINOFFS';
 import { Spinoff } from './spinoffs.model';
-import { max, Subject } from 'rxjs';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +58,19 @@ export class SpinoffsService {
     }
     newSpinoff.id = originalSpinoff.id;
     this.spinoffs[position] = newSpinoff;
+    let spinoffListClone = this.spinoffs.slice();
+    this.spinoffListChangedEvent.next(spinoffListClone);
+  }
+
+  deleteSpinoff(spinoff: Spinoff) {
+    if (!spinoff || spinoff === null) {
+      return;
+    };
+    let position = this.spinoffs.indexOf(spinoff);
+    if (position < 0) {
+      return;
+    };
+    this.spinoffs.splice(position, 1);
     let spinoffListClone = this.spinoffs.slice();
     this.spinoffListChangedEvent.next(spinoffListClone);
   }
