@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { Character } from '../character.model';
 import { CharacterService } from '../character.service';
@@ -13,7 +13,7 @@ export class CharacterDetailComponent implements OnInit {
   character: Character;
   id: number;
 
-  constructor(private charactersService: CharacterService, private route: ActivatedRoute) {}
+  constructor(private charactersService: CharacterService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -22,5 +22,10 @@ export class CharacterDetailComponent implements OnInit {
         this.character = this.charactersService.getOneCharacter(this.id);
       }
     )
+  }
+
+  onDelete() {
+    this.charactersService.deleteCharacter(this.character);
+    this.router.navigate(['/characters'], {relativeTo: this.route});
   }
 }

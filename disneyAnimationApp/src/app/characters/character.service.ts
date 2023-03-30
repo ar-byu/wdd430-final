@@ -60,4 +60,17 @@ export class CharacterService {
         this.characterListChangedEvent.next(characterListClone);
     }
 
+    deleteCharacter(character: Character) {
+        if (!character || character === null) {
+            return;
+        };
+        let position = this.characters.indexOf(character);
+        if (position < 0) {
+            return;
+        };
+        this.characters.splice(position, 1);
+        let characterListClone = this.characters.slice();
+        this.characterListChangedEvent.next(characterListClone);
+    }
+
 }
