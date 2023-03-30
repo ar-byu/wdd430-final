@@ -46,7 +46,6 @@ export class MoviesService {
     this.maxMovieId++;
     newMovie.id = this.maxMovieId;
     this.movies.push(newMovie);
-    console.log(this.movies)
     let movieListClone = this.movies.slice();
     this.movieListChangedEvent.next(movieListClone);
   }
