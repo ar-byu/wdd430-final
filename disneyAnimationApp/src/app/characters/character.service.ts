@@ -21,9 +21,9 @@ export class CharacterService {
         for (let character of this.characters) {
             let currentId = character.id;
             if (currentId > maxId) {
-                maxId = currentId
-            }
-        }
+                maxId = currentId;
+            };
+        };
         return maxId;
     }
 
@@ -31,8 +31,8 @@ export class CharacterService {
         return this.characters.slice();
     }
 
-    getOneCharacter(index: number): Character {
-        return this.characters[index];
+    getOneCharacter(id: number): Character {
+        return this.characters[id];
     }
 
     updateCharacter(originalCharacter: Character, newCharacter: Character) {

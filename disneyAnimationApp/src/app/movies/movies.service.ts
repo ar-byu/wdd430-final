@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { MOCKMOVIES } from './MOCKMOVIES';
 import { Movie } from './movies.model';
+import { MOCKMOVIES } from './MOCKMOVIES';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -21,9 +21,9 @@ export class MoviesService {
     for (let movie of this.movies) {
         let currentId = movie.id;
         if (currentId > maxId) {
-            maxId = currentId
-        }
-    }
+            maxId = currentId;
+        };
+    };
     return maxId;
 }
 
@@ -35,6 +35,10 @@ export class MoviesService {
     return this.movies[id];
   }
 
+  updateMovie(originalMovie: Movie, newMovie: Movie) {
+
+  }
+
   addMovie(newMovie: Movie) {
     if (!newMovie || newMovie === null) {
         return;
@@ -42,12 +46,9 @@ export class MoviesService {
     this.maxMovieId++;
     newMovie.id = this.maxMovieId;
     this.movies.push(newMovie);
+    console.log(this.movies)
     let movieListClone = this.movies.slice();
     this.movieListChangedEvent.next(movieListClone);
 }
-
-  updateMovie(originalMovie: Movie, newMovie: Movie) {
-
-  }
 
 }
