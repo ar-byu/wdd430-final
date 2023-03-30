@@ -60,4 +60,17 @@ export class MoviesService {
     this.movieListChangedEvent.next(movieListClone);
   }
 
+  deleteMovie(movie: Movie) {
+    if (!movie || movie === null ) {
+      return;
+    };
+    let position = this.movies.indexOf(movie);
+    if (position < 0) {
+      return;
+    };
+    this.movies.splice(position, 1);
+    let movieListClone = this.movies.slice();
+    this.movieListChangedEvent.next(movieListClone);
+  }
+
 }
