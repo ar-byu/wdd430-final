@@ -35,16 +35,12 @@
         <div class="row">
           <div class="col-sm-12 form-group">
             <label for="role">Role:</label>
-            <input
-              type="text"
-              id="role"
-              class="form-control required"
-              size="120"
-              max="255"
-              name="role"
-              [ngModel]="character?.role"
-              #name="ngModel"
-              required>
+              <div class="character-type-control">
+                <label for="protagonist">Protagonist:</label>
+                <input type="radio" name="role" value="Protagonist" id="protagonist" [ngModel]="character?.role" required><br>
+                <label for="antagonist">Antagonist:</label>
+                <input type="radio" name="role" value="Antagonist" id="antagonist" [ngModel]="character?.role">
+              </div>
           </div>
         </div>
 
