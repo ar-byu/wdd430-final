@@ -49,6 +49,16 @@ export class SpinoffsService {
   }
 
   updateSpinoff(originalSpinoff: Spinoff, newSpinoff: Spinoff) {
-
+    if (!originalSpinoff || originalSpinoff === null) {
+      return;
+    };
+    let position = this.spinoffs.indexOf(originalSpinoff);
+    if (position < 0) {
+      return;
+    }
+    newSpinoff.id = originalSpinoff.id;
+    this.spinoffs[position] = newSpinoff;
+    let spinoffListClone = this.spinoffs.slice();
+    this.spinoffListChangedEvent.next(spinoffListClone);
   }
 }

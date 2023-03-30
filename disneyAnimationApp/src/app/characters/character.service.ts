@@ -42,7 +42,7 @@ export class CharacterService {
         let position = this.characters.indexOf(originalCharacter);
         if (position < 0) {
             return;
-        }
+        };
         newCharacter.id = originalCharacter.id;
         this.characters[position] = newCharacter;
         let characterListClone = this.characters.slice();

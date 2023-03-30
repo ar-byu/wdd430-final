@@ -23,7 +23,17 @@ export class ErasService {
   }
 
   updateEra(originalEra: Era, newEra: Era) {
-    
+    if (!originalEra || originalEra === null) {
+      return;
+    };
+    let position = this.eras.indexOf(originalEra);
+    if (position < 0) {
+      return;
+    };
+    newEra.id = originalEra.id;
+    this.eras[position] = newEra;
+    let eraListClone = this.eras.slice();
+    this.erasListChangedEvent.next(eraListClone);
   }
 
 }

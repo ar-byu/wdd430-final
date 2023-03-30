@@ -36,7 +36,17 @@ export class MoviesService {
   }
 
   updateMovie(originalMovie: Movie, newMovie: Movie) {
-
+    if (!originalMovie || originalMovie === null) {
+      return;
+    };
+    let position = this.movies.indexOf(originalMovie);
+    if (position < 0) {
+      return;
+    };
+    newMovie.id = originalMovie.id;
+    this.movies[position] = newMovie;
+    let movieListClone = this.movies.slice();
+    this.movieListChangedEvent.next(movieListClone);
   }
 
   addMovie(newMovie: Movie) {
