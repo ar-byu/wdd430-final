@@ -49,6 +49,6 @@ export class MoviesService {
     console.log(this.movies)
     let movieListClone = this.movies.slice();
     this.movieListChangedEvent.next(movieListClone);
-}
+  }
 
 }

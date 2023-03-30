@@ -47,4 +47,8 @@ export class CharacterEditComponent implements OnInit {
     };
     this.router.navigate(['/characters'], {relativeTo: this.route});
   }
+
+  onCancel() {
+    this.router.navigate(['/characters'], {relativeTo: this.route});
+  }
 }
