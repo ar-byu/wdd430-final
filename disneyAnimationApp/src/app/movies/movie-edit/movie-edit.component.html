@@ -34,17 +34,16 @@
             <div class="row">
                 <div class="col-sm-12 form-group">
                     <label for="era">Animation Era:</label>
-                    <input
-                    type="text"
-                    id="era"
-                    class="form-control required"
-                    size="120"
-                    max="255"
-                    name="era"
-                    [ngModel]="movie?.era"
-                    #name="ngModel"
-                    required
-                    >
+                        <select name="era" id="era" [ngModel]="movie?.era">
+                            <option value="Golden Age">Golden Age</option>
+                            <option value="Package Era">Package Era</option>
+                            <option value="Silver Age">Silver Age</option>
+                            <option value="Bronze Age">Bronze Age</option>
+                            <option value="Disney Renaissance">Disney Renaissance</option>
+                            <option value="Post-Renaissance">Post-Renaissance</option>
+                            <option value="Revival Era">Revival Era</option>
+                            <option value="Streaming Era">Streaming Era</option>
+                        </select>
                 </div>
             </div>
             <div class="row">
