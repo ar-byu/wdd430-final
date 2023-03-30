@@ -36,7 +36,17 @@ export class CharacterService {
     }
 
     updateCharacter(originalCharacter: Character, newCharacter: Character) {
-
+        if (!originalCharacter || originalCharacter === null) {
+            return;
+        };
+        let position = this.characters.indexOf(originalCharacter);
+        if (position < 0) {
+            return;
+        }
+        newCharacter.id = originalCharacter.id;
+        this.characters[position] = newCharacter;
+        let characterListClone = this.characters.slice();
+        this.characterListChangedEvent.next(characterListClone);
     }
 
     addCharacter(newCharacter: Character) {
