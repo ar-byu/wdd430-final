@@ -48,4 +48,8 @@ export class MovieEditComponent implements OnInit {
     this.router.navigate(['/movies'], {relativeTo: this.route});
   }
 
+  onCancel() {
+    this.router.navigate(['/movies'], {relativeTo: this.route});
+  }
+
 }

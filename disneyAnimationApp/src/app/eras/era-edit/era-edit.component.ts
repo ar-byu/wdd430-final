@@ -48,4 +48,8 @@ export class EraEditComponent implements OnInit {
     this.router.navigate(['/eras'], {relativeTo: this.route});
   }
 
+  onCancel() {
+    this.router.navigate(['/eras'], {relativeTo: this.route});
+  }
+
 }
