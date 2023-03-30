@@ -35,5 +35,4 @@ export class ErasService {
     let eraListClone = this.eras.slice();
     this.erasListChangedEvent.next(eraListClone);
   }
-
 }
