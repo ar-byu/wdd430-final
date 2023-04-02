@@ -4,7 +4,7 @@ const IdGenerator = require('./idGenerator');
 const Character = require('../models/character');
 const idGenerator = require('./idGenerator');
 
-router.get('/', (req, res, next) => {
+router.get('/characters', (req, res, next) => {
     Character
         .find()
         .then((error, data) => {
