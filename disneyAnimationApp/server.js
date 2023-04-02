@@ -12,7 +12,7 @@ const eraRoutes = require('./server/routes/eras');
 const movieRoutes = require('./server/routes/movies');
 const spinoffRoutes = require('./server/routes/spinoffs');
 
-mongoose.connect(process.env.MONGODB_URI,
+mongoose.connect('mongodb+srv://adminUser:dLzlSSaF2dPiFFZ6@cluster0.lcph8tp.mongodb.net/wdd-301-disney',
     { useNewUrlParser: true }, (err, res) => {
         if (err) {
         console.log('Connection failed: ' + err);
