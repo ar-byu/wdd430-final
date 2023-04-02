@@ -4,13 +4,24 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-//var mongoose = require('mongoose');
+var mongoose = require('mongoose');
 
 let index = require('./server/routes/app');
 const characterRoutes = require('./server/routes/characters');
 const eraRoutes = require('./server/routes/eras');
 const movieRoutes = require('./server/routes/movies');
 const spinoffRoutes = require('./server/routes/spinoffs');
+
+mongoose.connect('mongodb://localhost:27017/disneyAnimationApp',
+    { useNewUrlParser: true }, (err, res) => {
+        if (err) {
+        console.log('Connection failed: ' + err);
+        }
+        else {
+        console.log('Connected to database!');
+        }
+    }
+);
 
 let app = express();
 app
