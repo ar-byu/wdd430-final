@@ -29,6 +29,7 @@ import { SpinoffEditComponent } from './spinoffs/spinoff-edit/spinoff-edit.compo
 import { SpinoffItemComponent } from './spinoffs/spinoff-item/spinoff-item.component';
 import { SpinoffListComponent } from './spinoffs/spinoff-list/spinoff-list.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

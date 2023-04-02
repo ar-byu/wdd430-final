@@ -1,7 +1,7 @@
-import {Injectable, EventEmitter } from '@angular/core';
+import {Injectable } from '@angular/core';
 import { Character } from './character.model';
-import { MOCKCHARACTERS } from './MOCKCHARACTERS';
 import { Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
@@ -11,8 +11,8 @@ export class CharacterService {
     characters: Character[] = [];
     maxCharacterId: number;
 
-    constructor() {
-        this.characters = MOCKCHARACTERS;
+    constructor(private http: HttpClient) {
+        this.characters = this.getCharacters();
         this.maxCharacterId = this.getMaxId();
     }
 
@@ -28,6 +28,26 @@ export class CharacterService {
     }
 
     getCharacters(): Character[] {
+        this.http.get<Character[]>('http://localhost:3000/characters')
+        .subscribe(
+            (characters: Character[]) => {
+                this.characters = characters;
+                this.maxCharacterId = this.getMaxId();
+                this.characters.sort((a, b) => {
+                    if (a.name < b.name) {
+                        return -1;
+                    }
+                    if (a.name > b.name) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                this.characterListChangedEvent.next(this.characters.slice());
+            },
+            (errors: any) => {
+                console.error(errors)
+            }
+        )
         return this.characters.slice();
     }
 

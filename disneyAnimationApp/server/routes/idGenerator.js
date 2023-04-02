@@ -1,4 +1,4 @@
-var Sequence = require('../models/id');
+var Sequence = require('../models/sequence');
 
 var maxMovieId;
 var maxCharacterId;
@@ -7,18 +7,13 @@ var sequenceId = null;
 
 function SequenceGenerator() {
 
-  ID.findOne()
+  Sequence.findOne()
     .exec(function(err, sequence) {
-      if (err) {
-        return res.status(500).json({
-          title: 'An error occurred',
-          error: err
-        });
-      }
+      
 
-      maxCharacterId = sequence.maxCharacterId;
-      maxSpinoffId = sequence.maxSpinoffId;
-      maxMovieId = sequence.maxMovieId;
+      maxCharacterId = Sequence.maxCharacterId;
+      maxSpinoffId = Sequence.maxSpinoffId;
+      maxMovieId = Sequence.maxMovieId;
     });
 }
 
