@@ -9,4 +9,5 @@ const eraSchema = mongoose.Schema({
     moviesInEra: {type: String, required: true}
 });
 
-module.exports = mongoose.model('Era', eraSchema);
+const Era = mongoose.model('Era', eraSchema);
+module.exports = Era;
