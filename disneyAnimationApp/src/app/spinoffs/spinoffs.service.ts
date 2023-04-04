@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { MOCKSPINOFFS } from './MOCKSPINOFFS';
 import { Spinoff } from './spinoffs.model';
 import { Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,10 +10,11 @@ export class SpinoffsService {
   spinoffListChangedEvent = new Subject<Spinoff[]>();
   spinoffs: Spinoff[] = [];
   maxSpinoffId: number;
+  SERVER_URL = "http://localhost:3000/api/spinoffs";
   
 
-  constructor() {
-    this.spinoffs = MOCKSPINOFFS;
+  constructor(private http: HttpClient) {
+    this.spinoffs = this.getSpinoffs();
     this.maxSpinoffId = this.getMaxId();
   }
 
@@ -29,6 +30,20 @@ export class SpinoffsService {
   }
 
   getSpinoffs(): Spinoff[] {
+    this.http
+      .get(this.SERVER_URL)
+      .subscribe(
+        (spinoffs: Spinoff[]) => {
+          this.spinoffs = spinoffs;
+          this.maxSpinoffId = this.getMaxId();
+          this.spinoffs.sort((a, b) => a.id - b.id);
+          this.spinoffListChangedEvent.next(this.spinoffs.slice());
+          this.spinoffs = JSON.parse(JSON.stringify(this.spinoffs));
+        },
+        (errors: any) => {
+          console.error(errors);
+        }
+      )
     return this.spinoffs.slice();
   }
 
@@ -37,15 +52,21 @@ export class SpinoffsService {
   }
 
   addSpinoff(newSpinoff: Spinoff) {
-    console.log(newSpinoff);
     if (!newSpinoff || newSpinoff === null) {
       return;
     };
-    this.maxSpinoffId++;
-    newSpinoff.id = this.maxSpinoffId;
-    this.spinoffs.push(newSpinoff);
-    let spinoffListClone = this.spinoffs.slice();
-    this.spinoffListChangedEvent.next(spinoffListClone);
+    newSpinoff.id;
+    console.log(newSpinoff);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    this.http
+      .post(this.SERVER_URL, newSpinoff, {headers: headers})
+      .subscribe(
+        (responseData) => {
+          this.spinoffs.push(newSpinoff);
+          let spinoffListClone = this.spinoffs.slice();
+          this.spinoffListChangedEvent.next(spinoffListClone);
+        }
+      )
   }
 
   updateSpinoff(originalSpinoff: Spinoff, newSpinoff: Spinoff) {

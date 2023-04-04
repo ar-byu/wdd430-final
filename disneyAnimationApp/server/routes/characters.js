@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-const IdGenerator = require('./idGenerator');
+const idGenerator = require('./idGenerator');
 const Character = require('../models/character');
 
-router.get('/', async (req, res, next) => {
+router.get('/', (req, res, next) => {
     Character
         .find({})
         .then(data => {

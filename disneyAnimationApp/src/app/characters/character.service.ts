@@ -77,6 +77,7 @@ export class CharacterService {
             return;
         }
         newCharacter.id;
+        console.log(newCharacter);
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
         this.http
         .post(this.SERVER_URL, newCharacter, {headers: headers})
