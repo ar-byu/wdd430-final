@@ -10,6 +10,7 @@ export class CharacterService {
     characterListChangedEvent = new Subject<Character[]>();
     characters: Character[] = [];
     maxCharacterId: number;
+    SERVER_URL = "http://localhost:3000/api/characters";
 
     constructor(private http: HttpClient) {
         this.characters = this.getCharacters();
@@ -28,21 +29,15 @@ export class CharacterService {
     }
 
     getCharacters(): Character[] {
-        this.http.get<Character[]>('http://localhost:3000/characters')
+        this.http
+        .get(this.SERVER_URL)
         .subscribe(
             (characters: Character[]) => {
                 this.characters = characters;
                 this.maxCharacterId = this.getMaxId();
-                this.characters.sort((a, b) => {
-                    if (a.name < b.name) {
-                        return -1;
-                    }
-                    if (a.name > b.name) {
-                        return 1;
-                    }
-                    return 0;
-                });
+                this.characters.sort((a, b) => a.id - b.id);
                 this.characterListChangedEvent.next(this.characters.slice());
+                this.characters = JSON.parse(JSON.stringify(this.characters));
             },
             (errors: any) => {
                 console.error(errors)
@@ -73,8 +68,9 @@ export class CharacterService {
         if (!newCharacter || newCharacter === null) {
             return;
         }
-        this.maxCharacterId++;
-        newCharacter.id = this.maxCharacterId;
+        newCharacter.id;
+        const headers = new HttpHeaders({'Content-Type': 'application/json'});
+        this.http.post('http://localhost:3000/api/characters', newCharacter, {headers: headers});
         this.characters.push(newCharacter);
         let characterListClone = this.characters.slice();
         this.characterListChangedEvent.next(characterListClone);

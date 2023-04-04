@@ -10,4 +10,5 @@ const characterSchema = mongoose.Schema({
     trivia: {type: String, required: true}
 });
 
-module.exports = mongoose.model('Character', characterSchema);
+let Character = mongoose.model('Character', characterSchema, 'characters');
+module.exports = Character;

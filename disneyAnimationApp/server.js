@@ -5,6 +5,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose');
+let app = express();
 
 let index = require('./server/routes/app');
 const characterRoutes = require('./server/routes/characters');
@@ -12,7 +13,7 @@ const eraRoutes = require('./server/routes/eras');
 const movieRoutes = require('./server/routes/movies');
 const spinoffRoutes = require('./server/routes/spinoffs');
 
-mongoose.connect('mongodb+srv://adminUser:dLzlSSaF2dPiFFZ6@cluster0.lcph8tp.mongodb.net/wdd-301-disney',
+mongoose.connect("mongodb+srv://adminUser:0XxCSn2waAAje29X@cluster0.lcph8tp.mongodb.net/wdd-301-disney",
     { useNewUrlParser: true }, (err, res) => {
         if (err) {
         console.log('Connection failed: ' + err);
@@ -22,14 +23,6 @@ mongoose.connect('mongodb+srv://adminUser:dLzlSSaF2dPiFFZ6@cluster0.lcph8tp.mong
         }
     }
 );
-
-let app = express();
-app
-    .use('/', index)
-    .use('/characters', characterRoutes)
-    .use('/eras', eraRoutes)
-    .use('/movies', movieRoutes)
-    .use('/spinoffs', spinoffRoutes)
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -51,6 +44,13 @@ app.use((req, res, next) => {
     );
     next();
   });
+
+app
+    .use('/', index)
+    .use('/api/characters', characterRoutes)
+    .use('/api/eras', eraRoutes)
+    .use('/api/movies', movieRoutes)
+    .use('/api/spinoffs', spinoffRoutes)
 
 app.use(express.static(path.join(__dirname, 'dist/disney-animation-app')));
 
