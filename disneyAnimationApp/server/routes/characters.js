@@ -9,20 +9,12 @@ router.get('/', async (req, res, next) => {
         .find({})
         .then(data => {
             res.status(200).send(data);
-            /*
-            if (error) {
-                return res.status(500).json({
-                    message: 'An error occured while fetching the character:',
-                    error: error
-                });
-            } else {
-                res.status(200).send(data);
-            };
-            */
         })
         .catch(error => {
-            console.log(error);
-            return error;
+            res.status(500).json({
+                message: "An error occured while fetching the characters: ",
+                error: error
+            })
         })
         
 });

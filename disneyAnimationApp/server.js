@@ -48,9 +48,9 @@ app.use((req, res, next) => {
 app
     .use('/', index)
     .use('/api/characters', characterRoutes)
-    .use('/eras', eraRoutes)
-    .use('/movies', movieRoutes)
-    .use('/spinoffs', spinoffRoutes)
+    .use('/api/eras', eraRoutes)
+    .use('/api/movies', movieRoutes)
+    .use('/api/spinoffs', spinoffRoutes)
 
 app.use(express.static(path.join(__dirname, 'dist/disney-animation-app')));
 

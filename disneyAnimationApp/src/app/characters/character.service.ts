@@ -68,8 +68,9 @@ export class CharacterService {
         if (!newCharacter || newCharacter === null) {
             return;
         }
-        this.maxCharacterId++;
-        newCharacter.id = this.maxCharacterId;
+        newCharacter.id;
+        const headers = new HttpHeaders({'Content-Type': 'application/json'});
+        this.http.post('http://localhost:3000/api/characters', newCharacter, {headers: headers});
         this.characters.push(newCharacter);
         let characterListClone = this.characters.slice();
         this.characterListChangedEvent.next(characterListClone);
