@@ -4,20 +4,27 @@ const IdGenerator = require('./idGenerator');
 const Character = require('../models/character');
 const idGenerator = require('./idGenerator');
 
-router.get('/characters', (req, res, next) => {
+router.get('/', async (req, res, next) => {
     Character
-        .find()
-        .then((error, data) => {
-            console.log(data);
+        .find({})
+        .then(data => {
+            res.status(200).send(data);
+            /*
             if (error) {
                 return res.status(500).json({
                     message: 'An error occured while fetching the character:',
                     error: error
                 });
             } else {
-                res.status(200).json(data);
+                res.status(200).send(data);
             };
-        });
+            */
+        })
+        .catch(error => {
+            console.log(error);
+            return error;
+        })
+        
 });
 
 router.post('/', (req, res, next) => {
