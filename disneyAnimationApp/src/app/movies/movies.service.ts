@@ -75,7 +75,8 @@ export class MoviesService {
     if (!newMovie || newMovie === null) {
         return;
     }
-    newMovie.id;
+    newMovie.id = this.getMaxId() + 1;
+    console.log(newMovie);
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     this.http
       .post(this.SERVER_URL, newMovie, {headers: headers})

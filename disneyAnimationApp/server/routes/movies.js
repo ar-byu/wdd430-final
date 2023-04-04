@@ -17,7 +17,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     const movie = new Movie({
-        id: maxMovieId,
+        id: req.body.id,
         title: req.body.title,
         promoImage: req.body.promoImage,
         year: req.body.year,
