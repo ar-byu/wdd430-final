@@ -59,9 +59,17 @@ export class CharacterService {
             return;
         };
         newCharacter.id = originalCharacter.id;
-        this.characters[position] = newCharacter;
-        let characterListClone = this.characters.slice();
-        this.characterListChangedEvent.next(characterListClone);
+        const headers = new HttpHeaders({'Content-Type': 'application/json'})
+        this.http
+            .put('http://localhost:3000/api/characters/' + newCharacter.id,
+                newCharacter, {headers: headers})
+            .subscribe(
+                (result) => {
+                    this.characters[position] = newCharacter;
+                    let characterListClone = this.characters.slice();
+                    this.characterListChangedEvent.next(characterListClone);
+                }
+            )
     }
 
     addCharacter(newCharacter: Character) {
@@ -90,9 +98,15 @@ export class CharacterService {
         if (position < 0) {
             return;
         };
-        this.characters.splice(position, 1);
-        let characterListClone = this.characters.slice();
-        this.characterListChangedEvent.next(characterListClone);
+        this.http
+            .delete('http://localhost:3000/characters/' + character.id)
+            .subscribe(
+                (response: Response) => {
+                    this.characters.splice(position, 1);
+                    let characterListClone = this.characters.slice();
+                    this.characterListChangedEvent.next(characterListClone);
+                }
+            )
     }
 
 }
