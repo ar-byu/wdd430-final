@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './movies.model';
-import { MOCKMOVIES } from './MOCKMOVIES';
 import { Subject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +10,10 @@ export class MoviesService {
   movieListChangedEvent = new Subject<Movie[]>();
   movies: Movie[] = [];
   maxMovieId: number;
+  SERVER_URL = "http://localhost:3000/api/movies"
 
-  constructor() {
-    this.movies = MOCKMOVIES;
+  constructor(private http: HttpClient) {
+    this.movies = this.getMovies();
     this.maxMovieId = this.getMaxId();
   }
 
@@ -28,7 +29,20 @@ export class MoviesService {
 }
 
   getMovies(): Movie[] {
-    return this.movies.slice();
+    this.http
+      .get(this.SERVER_URL)
+      .subscribe(
+        (movies: Movie[]) => {
+          this.movies = movies;
+          this.movies.sort((a, b) => +a.year - +b.year);
+          this.movieListChangedEvent.next(this.movies.slice());
+          this.movies = JSON.parse(JSON.stringify(this.movies));
+        },
+        (errors: any) => {
+          console.error(errors)
+        }
+      )
+      return this.movies.slice();
   }
 
   getOneMovie(id: number): Movie {
@@ -44,20 +58,34 @@ export class MoviesService {
       return;
     };
     newMovie.id = originalMovie.id;
-    this.movies[position] = newMovie;
-    let movieListClone = this.movies.slice();
-    this.movieListChangedEvent.next(movieListClone);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    this.http
+      .put(this.SERVER_URL + "/" + newMovie.id,
+          newMovie, {headers: headers})
+      .subscribe(
+        (result) => {
+          this.movies[position] = newMovie;
+          let movieListClone = this.movies.slice();
+          this.movieListChangedEvent.next(movieListClone);
+        }
+      )
   }
 
   addMovie(newMovie: Movie) {
     if (!newMovie || newMovie === null) {
         return;
     }
-    this.maxMovieId++;
-    newMovie.id = this.maxMovieId;
-    this.movies.push(newMovie);
-    let movieListClone = this.movies.slice();
-    this.movieListChangedEvent.next(movieListClone);
+    newMovie.id;
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    this.http
+      .post(this.SERVER_URL, newMovie, {headers: headers})
+      .subscribe(
+        (response) => {
+          this.movies.push(newMovie);
+          let movieListClone = this.movies.slice();
+          this.movieListChangedEvent.next(movieListClone);
+        }
+      )
   }
 
   deleteMovie(movie: Movie) {
@@ -68,9 +96,15 @@ export class MoviesService {
     if (position < 0) {
       return;
     };
-    this.movies.splice(position, 1);
-    let movieListClone = this.movies.slice();
-    this.movieListChangedEvent.next(movieListClone);
+    this.http
+      .delete(this.SERVER_URL + '/' + movie.id)
+      .subscribe(
+        (response: Response) => {
+          this.movies.splice(position, 1);
+          let movieListClone = this.movies.slice();
+          this.movieListChangedEvent.next(movieListClone);
+        }
+      )
   }
 
 }

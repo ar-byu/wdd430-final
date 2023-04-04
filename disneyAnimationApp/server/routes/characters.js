@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 const IdGenerator = require('./idGenerator');
 const Character = require('../models/character');
-const idGenerator = require('./idGenerator');
 
 router.get('/', async (req, res, next) => {
     Character
@@ -12,7 +11,7 @@ router.get('/', async (req, res, next) => {
         })
         .catch(error => {
             res.status(500).json({
-                message: "An error occured while fetching the characters: ",
+                message: "An error occurred while fetching the characters: ",
                 error: error
             })
         })
@@ -40,7 +39,7 @@ router.post('/', (req, res, next) => {
         })
         .catch(error => {
             res.status(500).json({
-                message: "An error occured while adding the character: ",
+                message: "An error occurred while adding the character: ",
                 error: error
             });
         });
@@ -66,7 +65,7 @@ router.put('/:id', (req, res, next) => {
                 })
                 .catch(error => {
                     res.status(500).json({
-                        message: "An error occured while updating the character: ",
+                        message: "An error occurred while updating the character: ",
                         error: error
                     });
                 });
@@ -92,7 +91,7 @@ router.delete('/:id', (req, res, next) => {
                 })
                 .catch(error => {
                     res.status(500).json({
-                        message: "An error occured while deleting the character: ",
+                        message: "An error occurred while deleting the character: ",
                         error: error
                     });
                 });

@@ -61,7 +61,7 @@ export class CharacterService {
         newCharacter.id = originalCharacter.id;
         const headers = new HttpHeaders({'Content-Type': 'application/json'})
         this.http
-            .put('http://localhost:3000/api/characters/' + newCharacter.id,
+            .put(this.SERVER_URL + '/' + newCharacter.id,
                 newCharacter, {headers: headers})
             .subscribe(
                 (result) => {
@@ -79,7 +79,7 @@ export class CharacterService {
         newCharacter.id;
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
         this.http
-        .post('http://localhost:3000/api/characters', newCharacter, {headers: headers})
+        .post(this.SERVER_URL, newCharacter, {headers: headers})
         .subscribe(
             (responseData) => {
                 this.characters.push(newCharacter);
@@ -99,7 +99,7 @@ export class CharacterService {
             return;
         };
         this.http
-            .delete('http://localhost:3000/characters/' + character.id)
+            .delete(this.SERVER_URL + '/' + character.id)
             .subscribe(
                 (response: Response) => {
                     this.characters.splice(position, 1);
