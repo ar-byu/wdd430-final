@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const sequenceGenerator = require('./sequenceGenerator');
 const Spinoff = require('../models/spinoff');
 
 router.get('/', (req, res, next) => {
@@ -18,7 +17,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    //const maxSpinoffId = sequenceGenerator.nextId('spinoffs');
     const spinoff = new Spinoff({
         id: req.body.id,
         title: req.body.title,

@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const sequenceGenerator = require('./sequenceGenerator');
 const Movie = require ('../models/movie');
 
 router.get('/', (req, res, next) => {
@@ -17,7 +16,6 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    const maxMovieId = sequenceGenerator.nextId('movies');
     const movie = new Movie({
         id: maxMovieId,
         title: req.body.title,
