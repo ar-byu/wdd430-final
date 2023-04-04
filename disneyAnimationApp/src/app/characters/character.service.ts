@@ -76,13 +76,14 @@ export class CharacterService {
         if (!newCharacter || newCharacter === null) {
             return;
         }
-        newCharacter.id;
+        newCharacter.id = this.getMaxId() + 1;
         console.log(newCharacter);
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
         this.http
         .post(this.SERVER_URL, newCharacter, {headers: headers})
         .subscribe(
             (responseData) => {
+                console.log(newCharacter);
                 this.characters.push(newCharacter);
                 let characterListClone = this.characters.slice();
                 this.characterListChangedEvent.next(characterListClone);

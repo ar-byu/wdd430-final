@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const idGenerator = require('./idGenerator');
+const sequenceGenerator = require('./sequenceGenerator');
 const Character = require('../models/character');
 
 router.get('/', (req, res, next) => {
@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    const maxCharacterId = idGenerator.nextId('characters');
+    const maxCharacterId = sequenceGenerator.nextId('characters');
     const character = new Character({
         id: maxCharacterId,
         name: req.body.name,

@@ -8,10 +8,17 @@ var sequenceId = null;
 function SequenceGenerator() {
 
   Sequence.findOne()
-    .exec(function(err, Sequence) {
-      maxCharacterId = Sequence.maxCharacterId;
-      maxSpinoffId = Sequence.maxSpinoffId;
-      maxMovieId = Sequence.maxMovieId;
+    .exec(function(err, sequence) {
+      if (err) {
+        return res.status(500).json({
+          title: 'An error occurred',
+          error: err
+        });
+      }
+      sequenceId = sequence._id;
+      maxCharacterId = sequence.maxCharacterId;
+      maxSpinoffId = sequence.maxSpinoffId;
+      maxMovieId = sequence.maxMovieId;
     });
 }
 
@@ -40,7 +47,7 @@ SequenceGenerator.prototype.nextId = function(collectionType) {
       return -1;
   }
 
-  Sequence.update({_id: sequenceId}, {$set: updateObject},
+  Sequence.updateOne({_id: sequenceId}, {$set: updateObject},
     function(err) {
       if (err) {
         console.log("nextId error = " + err);

@@ -55,13 +55,14 @@ export class SpinoffsService {
     if (!newSpinoff || newSpinoff === null) {
       return;
     };
-    newSpinoff.id;
+    newSpinoff.id = this.getMaxId() + 1;
     console.log(newSpinoff);
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     this.http
       .post(this.SERVER_URL, newSpinoff, {headers: headers})
       .subscribe(
         (responseData) => {
+          console.log(newSpinoff);
           this.spinoffs.push(newSpinoff);
           let spinoffListClone = this.spinoffs.slice();
           this.spinoffListChangedEvent.next(spinoffListClone);
