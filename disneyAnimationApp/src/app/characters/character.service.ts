@@ -70,10 +70,16 @@ export class CharacterService {
         }
         newCharacter.id;
         const headers = new HttpHeaders({'Content-Type': 'application/json'});
-        this.http.post('http://localhost:3000/api/characters', newCharacter, {headers: headers});
-        this.characters.push(newCharacter);
-        let characterListClone = this.characters.slice();
-        this.characterListChangedEvent.next(characterListClone);
+        this.http
+        .post('http://localhost:3000/api/characters', newCharacter, {headers: headers})
+        .subscribe(
+            (responseData) => {
+                this.characters.push(newCharacter);
+                let characterListClone = this.characters.slice();
+                this.characterListChangedEvent.next(characterListClone);
+            }
+        )
+        
     }
 
     deleteCharacter(character: Character) {

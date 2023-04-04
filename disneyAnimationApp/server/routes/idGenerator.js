@@ -8,9 +8,7 @@ var sequenceId = null;
 function SequenceGenerator() {
 
   Sequence.findOne()
-    .exec(function(err, sequence) {
-      
-
+    .exec(function(err, Sequence) {
       maxCharacterId = Sequence.maxCharacterId;
       maxSpinoffId = Sequence.maxSpinoffId;
       maxMovieId = Sequence.maxMovieId;
