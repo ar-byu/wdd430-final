@@ -48,17 +48,14 @@
             <div class="row">
                 <div class="col-sm-12 form-group">
                     <label for="description">Description:</label>
-                    <input 
-                    type="text"
-                    id="description"
-                    class="form-control required"
-                    size="120"
-                    max="300"
-                    name="description"
+                    <textarea id="description" 
+                    class="form-control required" 
+                    rows="4" cols="120" 
+                    name="description" 
                     [ngModel]="era?.description"
                     #name="ngModel"
                     required
-                    >
+                    ></textarea>
                 </div>
             </div>
             <div class="row">

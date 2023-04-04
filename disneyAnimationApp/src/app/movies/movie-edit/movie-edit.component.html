@@ -65,17 +65,13 @@
             <div class="row">
                 <div class="col-sm-12 form-group">
                     <label for="Trivia">Trivia:</label>
-                    <input
-                    type="text"
-                    id="trivia"
+                    <textarea id="trivia"
                     class="form-control required"
-                    size="120"
-                    max="500"
+                    rows="4" cols="120"
                     name="trivia"
                     [ngModel]="movie?.trivia"
                     #name="ngModel"
-                    required
-                    >
+                    required></textarea>
                 </div>
             </div>
             <div class="row">
