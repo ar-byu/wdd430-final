@@ -25,4 +25,6 @@ nav a {color: white;}
 
 .btn-danger:hover {background-color: #b43570;}
 
+.btn-success:disabled {background-color: #916cd4;}
+
 .nav-item:hover, nav .active {background-color: #246197;}
