@@ -1,0 +1,15 @@
+.character-panel {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 100%;
+}
+
+.character-left {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.character-right {
+    grid-column: 2;
+    grid-row: 1;
+}

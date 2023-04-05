@@ -1,8 +1,7 @@
-<div class="panel panel-default">
+<div class="card">
     <div class="row">
         <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
+          <div class="card-header">
               <div class="row" style="margin-left: 3%">
                 <h1 class="title pad-left-right">Characters</h1>
               </div>
@@ -11,13 +10,14 @@
                   <a class="btn btn-success" [routerLink]="['new']">Add Character</a>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
-    <div class="panel-body">
+    <div class="card-body" style="margin: 2%;">
+      <div class="list-group">
         <mat-spinner *ngIf="isLoading" style="margin: auto;"></mat-spinner>
         <app-character-item
         *ngFor="let character of characters; let i = index" [character]="character" [index]="i"></app-character-item>
+      </div>
     </div>
 </div>
