@@ -1,8 +1,7 @@
-<div class="panel panel-default">
+<div class="card">
     <div class="row">
         <div class="col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
+            <div class="card-header">
               <div class="row" style="margin-left: 3%">
                 <h1 class="title pad-left-right">Spinoffs</h1>
               </div>
@@ -11,13 +10,14 @@
                   <a class="btn btn-success" [routerLink]="['new']">Add Spinoff</a>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
-    <div class="panel-body">
-      <mat-spinner *ngIf="isLoading" style="margin: auto;"></mat-spinner>
-        <app-spinoff-item
-        *ngFor="let spinoff of spinoffs; let i = index" [spinoff]="spinoff" [index]="i"></app-spinoff-item>
+    <div class="card-body">
+      <div class="list-group" style="margin: 2%">
+        <mat-spinner *ngIf="isLoading" style="margin: auto;"></mat-spinner>
+          <app-spinoff-item
+          *ngFor="let spinoff of spinoffs; let i = index" [spinoff]="spinoff" [index]="i"></app-spinoff-item>
+      </div>
     </div>
 </div>

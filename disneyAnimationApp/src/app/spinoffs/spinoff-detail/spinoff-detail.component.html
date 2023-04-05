@@ -1,12 +1,12 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
+<div class="card">
+    <div class="card-header">
         <h1>{{spinoff.title}}</h1>
         <div style="margin-top: 15px;">
             <button class="btn btn-primary" [routerLink]="'./edit'">Edit</button>
             <button class="btn btn-danger" (click)="onDelete()">Delete</button>
         </div>
     </div>
-    <div class="panel panel-body">
+    <div class="card-body">
         <h3><b>Parent Movie: </b>{{spinoff.related}}</h3>
         <h3><b>Spinoff Type: </b>{{spinoff.type}}</h3>
     </div>
