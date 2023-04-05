@@ -1,5 +1,5 @@
-<div class="panel panel-default">
-    <div class="panel-body">
+<div class="card">
+    <div class="card-body">
         <form id="era-edit" #f="ngForm" (ngSubmit)="onSubmit(f)">
             <div class="row">
                 <div class="col-sm-12 form-group">
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-xs-12 btn-toolbar">
+                <div class="col-xs-12" style="margin-top: 1%;">
                     <button class="btn btn-success" type="submit" [disabled]="f.invalid">Submit</button>
                     <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
                 </div>

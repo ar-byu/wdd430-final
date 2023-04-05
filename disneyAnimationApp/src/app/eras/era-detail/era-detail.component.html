@@ -1,11 +1,11 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
+<div class="card">
+    <div class="card-header">
         <h1>{{era.name}}</h1>
         <div style="margin-top: 15px;">
             <button class="btn btn-primary" [routerLink]="'./edit'">Edit</button>
         </div>
     </div>
-    <div class="panel panel-body">
+    <div class="card-body">
         <p><b>Years:</b> {{era.start_year}} - {{era.end_year}}</p>
         <p><b>Description:</b> {{era.description}}</p>
         <p><b>Movies in this era:</b> {{era.moviesInEra}}</p>
