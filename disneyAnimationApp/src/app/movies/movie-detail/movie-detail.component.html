@@ -7,16 +7,20 @@
         </div>
     </div>
     <div class="card-body movie-panel">
-        <div class="movie-right">
-            <p><b>Year:</b> {{movie.year}}</p>
-            <p><b>Era:</b> {{movie.era}}</p>
-            <p><b>Length:</b> {{movie.length}}</p>
-            <p><b>Trivia:</b> {{movie.trivia}}</p>
-            <p><b>Category:</b> {{movie.category}}</p>
+        <div class="card movie-right">
+            <div class="card-body">
+                <p><b>Year:</b> {{movie.year}}</p>
+                <p><b>Era:</b> {{movie.era}}</p>
+                <p><b>Length:</b> {{movie.length}}</p>
+                <p><b>Trivia:</b> {{movie.trivia}}</p>
+                <p><b>Category:</b> {{movie.category}}</p>
+            </div>
         </div>
-        <div class="movie-left">
-            <img src="{{movie.promoImage}}" alt="Theatrical poster for {{movie.title}}">
-            <p><b>Theatrical Trailer: </b><a href={{movie.trailerLink}}>{{movie.trailerLink}}</a></p>
+        <div class="card movie-left">
+            <div class="card-body">
+                <img src="{{movie.promoImage}}" alt="Theatrical poster for {{movie.title}}" style="margin-left: 12.5%;">
+                <p><b>Theatrical Trailer: </b><a href={{movie.trailerLink}}>{{movie.trailerLink}}</a></p>
+            </div>
         </div>
     </div>
 </div>
