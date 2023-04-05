@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+  selectedLink: string = 'movies';
 
+  navClick(event, item) {
+    this.selectedLink = item;
+  }
 }

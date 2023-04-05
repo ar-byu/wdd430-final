@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm sticky-top bg-light">
+<nav class="navbar navbar-expand-sm sticky-top navbar-dark" style="margin-bottom: 1%">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Disney Animation Database</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -6,17 +6,26 @@
       </button>
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
-            <li routerLinkActive="active" class="nav-item">
-                <a routerLink="movies" class="nav-link">Movies</a>
+            <li class="nav-item">
+                <a routerLink="movies" class="nav-link"
+                [ngClass]="{'active': selectedLink === 'movies'}"
+                (click)="navClick($event, 'movies')"
+                >Movies</a>
             </li>
-            <li routerLinkActive="active" class="nav-item">
-                <a routerLink="spinoffs" class="nav-link">Spinoffs</a>
+            <li class="nav-item">
+                <a routerLink="spinoffs" class="nav-link"
+                [ngClass]="{'active': selectedLink === 'spinoffs'}"
+                (click)="navClick($event, 'spinoffs')">Spinoffs</a>
             </li>
-            <li routerLinkActive="active" class="nav-item">
-                <a routerLink="characters" class="nav-link">Characters</a>
+            <li class="nav-item">
+                <a routerLink="characters" class="nav-link"
+                [ngClass]="{'active': selectedLink === 'characters'}"
+                (click)="navClick($event, 'characters')">Characters</a>
             </li>
-            <li routerLinkActive="active" class="nav-item">
-                <a routerLink="eras" class="nav-link">Eras</a>
+            <li class="nav-item">
+                <a routerLink="eras" class="nav-link"
+                [ngClass]="{'active': selectedLink === 'eras'}"
+                (click)="navClick($event, 'eras')">Eras</a>
             </li>
         </ul>
       </div>

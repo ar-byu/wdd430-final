@@ -1,4 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+/* Custom Style Name: Fairy Godmother */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Roboto, 
+    "Helvetica Neue", sans-serif;
+    background-image: radial-gradient(circle, #5680E9, #C1C8E4 50%, #5AB9EA);    
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+nav {background-color: #286DA8;}
+
+nav a {color: white;}
+
+.card-header {background-color: #84CEEB;}
+
+.btn-success {background-color: #8860D0;}
+
+.btn-danger {background-color: #D83F87;}
+
+.btn-success:hover {background-color: #7a56bd;}
+
+.btn-danger:hover {background-color: #b43570;}
+
+.nav-item:hover, nav .active {background-color: #246197;}
