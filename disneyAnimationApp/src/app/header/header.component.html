@@ -1,13 +1,24 @@
-<nav class="navbar nav-default">
+<nav class="navbar navbar-expand-sm sticky-top bg-light">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <a href="#" class="navbar-brand">Disney Animation Database</a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li routerLinkActive="active"><a routerLink="movies">Movies</a></li>
-            <li routerLinkActive="active"><a routerLink="spinoffs">Spinoffs</a></li>
-            <li routerLinkActive="active"><a routerLink="characters">Characters</a></li>
-            <li routerLinkActive="active"><a routerLink="eras">Eras</a></li>
+      <a class="navbar-brand" href="#">Disney Animation Database</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+            <li routerLinkActive="active" class="nav-item">
+                <a routerLink="movies" class="nav-link">Movies</a>
+            </li>
+            <li routerLinkActive="active" class="nav-item">
+                <a routerLink="spinoffs" class="nav-link">Spinoffs</a>
+            </li>
+            <li routerLinkActive="active" class="nav-item">
+                <a routerLink="characters" class="nav-link">Characters</a>
+            </li>
+            <li routerLinkActive="active" class="nav-item">
+                <a routerLink="eras" class="nav-link">Eras</a>
+            </li>
         </ul>
+      </div>
     </div>
-</nav>
+  </nav>
