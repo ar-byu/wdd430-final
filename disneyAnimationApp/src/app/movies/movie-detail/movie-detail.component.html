@@ -1,12 +1,12 @@
-<div class="panel panel-default">
-    <div class="panel-heading">
+<div class="card">
+    <div class="card-header">
         <h1>{{movie.title}}</h1>
         <div style="margin-top: 15px;">
             <button class="btn btn-primary" [routerLink]="'./edit'">Edit</button>
             <button class="btn btn-danger" #f (click)="onDelete()">Delete</button>
         </div>
     </div>
-    <div class="panel panel-body movie-panel">
+    <div class="card-body movie-panel">
         <div class="movie-right">
             <p><b>Year:</b> {{movie.year}}</p>
             <p><b>Era:</b> {{movie.era}}</p>
