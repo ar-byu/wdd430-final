@@ -11,14 +11,17 @@ import { Subscription } from 'rxjs';
 export class EraListComponent implements OnInit {
   eras: Era[] = [];
   private subscription: Subscription;
+  isLoading: Boolean = false;
 
   constructor(private erasService: ErasService) {}
 
   ngOnInit() {
     this.eras = this.erasService.getEras();
+    this.isLoading = true;
     this.subscription = this.erasService.erasListChangedEvent
       .subscribe(
         (eras: Era[]) => {
+          this.isLoading = false;
           this.eras = eras;
         }
       )

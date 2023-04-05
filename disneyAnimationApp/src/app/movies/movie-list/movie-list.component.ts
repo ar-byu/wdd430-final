@@ -11,14 +11,17 @@ import { Subscription } from 'rxjs';
 export class MovieListComponent implements OnInit {
   movies: Movie[] = [];
   private subscription: Subscription;
+  isLoading: Boolean = false;
 
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit() {
     this.movies = this.moviesService.getMovies();
+    this.isLoading = true;
     this.subscription = this.moviesService.movieListChangedEvent
       .subscribe(
         (movies: Movie[]) => {
+          this.isLoading = false;
           this.movies = movies;
         }
       )

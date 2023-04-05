@@ -11,14 +11,17 @@ import { Subscription } from 'rxjs';
 export class SpinoffListComponent implements OnInit {
   spinoffs: Spinoff[] = [];
   private subscription: Subscription;
+  isLoading: Boolean = false;
 
   constructor(private spinoffService: SpinoffsService) {}
 
   ngOnInit() {
     this.spinoffs = this.spinoffService.getSpinoffs();
+    this.isLoading = true;
     this.subscription = this.spinoffService.spinoffListChangedEvent
       .subscribe(
         (spinoffs: Spinoff[]) => {
+          this.isLoading = false;
           this.spinoffs = spinoffs;
         }
       )

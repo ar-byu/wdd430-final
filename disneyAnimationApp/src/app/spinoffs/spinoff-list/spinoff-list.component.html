@@ -16,6 +16,7 @@
         </div>
       </div>
     <div class="panel-body">
+      <mat-spinner *ngIf="isLoading" style="margin: auto;"></mat-spinner>
         <app-spinoff-item
         *ngFor="let spinoff of spinoffs; let i = index" [spinoff]="spinoff" [index]="i"></app-spinoff-item>
     </div>

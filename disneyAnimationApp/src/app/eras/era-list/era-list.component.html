@@ -11,6 +11,7 @@
     </div>
     <div class="panel-body">
       <div class="center-panel">
+        <mat-spinner *ngIf="isLoading" style="margin: auto"></mat-spinner>
        <app-era-item
        *ngFor="let era of eras; let i = index" [era]="era" [index]="i">
         </app-era-item>

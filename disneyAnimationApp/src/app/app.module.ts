@@ -30,6 +30,7 @@ import { SpinoffItemComponent } from './spinoffs/spinoff-item/spinoff-item.compo
 import { SpinoffListComponent } from './spinoffs/spinoff-list/spinoff-list.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
