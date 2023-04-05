@@ -79,9 +79,17 @@ export class SpinoffsService {
       return;
     }
     newSpinoff.id = originalSpinoff.id;
-    this.spinoffs[position] = newSpinoff;
-    let spinoffListClone = this.spinoffs.slice();
-    this.spinoffListChangedEvent.next(spinoffListClone);
+    const headers = new HttpHeaders({'Content-Type': 'application/json'});
+    this.http
+      .put(this.SERVER_URL + '/' + newSpinoff.id,
+      newSpinoff, {headers: headers})
+      .subscribe(
+        (result) => {
+          this.spinoffs[position] = newSpinoff;
+          let spinoffListClone = this.spinoffs.slice();
+          this.spinoffListChangedEvent.next(spinoffListClone);
+        }
+      )
   }
 
   deleteSpinoff(spinoff: Spinoff) {
@@ -92,8 +100,14 @@ export class SpinoffsService {
     if (position < 0) {
       return;
     };
-    this.spinoffs.splice(position, 1);
-    let spinoffListClone = this.spinoffs.slice();
-    this.spinoffListChangedEvent.next(spinoffListClone);
+    this.http
+      .delete(this.SERVER_URL + '/' + spinoff.id)
+      .subscribe(
+        (response: Response) => {
+          this.spinoffs.splice(position, 1);
+          let spinoffListClone = this.spinoffs.slice();
+          this.spinoffListChangedEvent.next(spinoffListClone);
+        }
+      )
   }
 }
