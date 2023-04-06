@@ -35,6 +35,7 @@ export class SpinoffsService {
       .subscribe(
         (spinoffs: Spinoff[]) => {
           this.spinoffs = spinoffs;
+          console.log(this.spinoffs)
           this.maxSpinoffId = this.getMaxId();
           this.spinoffs.sort((a, b) => a.id - b.id);
           this.spinoffListChangedEvent.next(this.spinoffs.slice());

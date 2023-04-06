@@ -21,7 +21,6 @@ export class ErasService {
       .subscribe(
         (eras: Era[]) => {
           this.eras = eras;
-          this.eras.sort((a, b) => +a.start_year - +b.start_year);
           this.erasListChangedEvent.next(this.eras.slice());
           this.eras = JSON.parse(JSON.stringify(this.eras));
         },
@@ -45,6 +44,8 @@ export class ErasService {
       return;
     };
     newEra.id = originalEra.id;
+    console.log(originalEra);
+    console.log(newEra);
     const headers = new HttpHeaders({'Content-Type': 'application/json'});
     this.http
       .put(this.SERVER_URL + '/' + newEra.id, newEra, {headers: headers})

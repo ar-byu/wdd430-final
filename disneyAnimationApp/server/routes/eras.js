@@ -20,18 +20,19 @@ router.put('/:id', (req, res, next) => {
     Era
         .findOne({id: req.params.id})
         .then(era => {
-            era.name = req.params.name,
-            era.start_year = req.params.start_year,
-            era.end_year = req.params.end_year,
-            era.description = req.params.description,
-            era.moviesInEra = req.params.moviesInEra
+            era.id = req.body.id,
+            era.name = req.body.name,
+            era.start_year = req.body.start_year,
+            era.end_year = req.body.end_year,
+            era.description = req.body.description,
+            era.moviesInEra = req.body.moviesInEra
 
             Era
                 .updateOne({id: req.params.id}, era)
                 .then(result => {
                     res.status(204).json({
                         message: "Era updated successfully"
-                    });
+                    })
                 })
                 .catch(error => {
                     res.status(500).json({
