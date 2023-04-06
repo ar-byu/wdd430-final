@@ -20,7 +20,7 @@ router.put('/:id', (req, res, next) => {
     Era
         .findOne({id: req.params.id})
         .then(era => {
-            era.name = req.params.era,
+            era.name = req.params.name,
             era.start_year = req.params.start_year,
             era.end_year = req.params.end_year,
             era.description = req.params.description,
