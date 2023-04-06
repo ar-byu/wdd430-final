@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
     const character = new Character({
-        id: maxCharacterId,
+        id: req.body.id,
         name: req.body.name,
         role: req.body.role,
         movie: req.body.movie,
